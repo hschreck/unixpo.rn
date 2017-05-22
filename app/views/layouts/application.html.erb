@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Unixpo.rn</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="col-md-6 col-xs-12">
+        <ul class="nav nav-pills nav-fill">
+          <li class="nav-item"><a href="#" class="nav-link active">Submit</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Browse</a></li>
+          <li class="nav-item"><a href="#" class="nav-link <%= "disabled" unless user_signed_in? %>">Profile</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-xs-12">
+        <ul class="nav nav-pills justify-content-end">
+          <li class="nav-item">
+            <% if user_signed_in? %>
+              <%= link_to "Sign Out", destroy_user_session_path, 
+              :method => :delete,
+              :class => "nav-link active" %>
+            <% else %>
+              <%= link_to "Sign In", new_user_session_path,
+              :class => "nav-link active" %>
+            <% end %>
+          </li>
+      </div>
+    </div>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>
