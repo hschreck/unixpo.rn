@@ -11,5 +11,18 @@
  * It is generally better to create a new file per style scope.
  *
  */
-
 @import "bootstrap";
+
+body {
+    background-color: #E5EAEA;
+}
+
+#sidebar {
+    background-color: #292b2c;
+    color: #E5EAEA;
+}
+
+#sidebar_themes {
+    background-color: #292b2c;
+    color: #E5EAEA;
+}
